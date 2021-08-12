@@ -1,0 +1,196 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="uth_inte09ModelStoreContainer" CdmEntityContainer="uth_inte09Entities">
+    <EntitySetMapping Name="C__MigrationHistory">
+      <EntityTypeMapping TypeName="uth_inte09Model.C__MigrationHistory">
+        <MappingFragment StoreEntitySet="__MigrationHistory">
+          <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+          <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetRoles">
+      <EntityTypeMapping TypeName="uth_inte09Model.AspNetRoles">
+        <MappingFragment StoreEntitySet="AspNetRoles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserClaims">
+      <EntityTypeMapping TypeName="uth_inte09Model.AspNetUserClaims">
+        <MappingFragment StoreEntitySet="AspNetUserClaims">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+          <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserLogins">
+      <EntityTypeMapping TypeName="uth_inte09Model.AspNetUserLogins">
+        <MappingFragment StoreEntitySet="AspNetUserLogins">
+          <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+          <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUsers">
+      <EntityTypeMapping TypeName="uth_inte09Model.AspNetUsers">
+        <MappingFragment StoreEntitySet="AspNetUsers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+          <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+          <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+          <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+          <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="detalles">
+      <EntityTypeMapping TypeName="uth_inte09Model.detalles">
+        <MappingFragment StoreEntitySet="detalles">
+          <ScalarProperty Name="IdFC" ColumnName="IdFC" />
+          <ScalarProperty Name="Idregistro" ColumnName="Idregistro" />
+          <ScalarProperty Name="Distancia_recor" ColumnName="Distancia_recor" />
+          <ScalarProperty Name="Nopasos" ColumnName="Nopasos" />
+          <ScalarProperty Name="Calorias_quem" ColumnName="Calorias_quem" />
+          <ScalarProperty Name="Fecha_regde" ColumnName="Fecha_regde" />
+          <ScalarProperty Name="Hora_regde" ColumnName="Hora_regde" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="expediente">
+      <EntityTypeMapping TypeName="uth_inte09Model.expediente">
+        <MappingFragment StoreEntitySet="expediente">
+          <ScalarProperty Name="Idpaciente" ColumnName="Idpaciente" />
+          <ScalarProperty Name="Expediente1" ColumnName="Expediente" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="fre_card">
+      <EntityTypeMapping TypeName="uth_inte09Model.fre_card">
+        <MappingFragment StoreEntitySet="fre_card">
+          <ScalarProperty Name="IdSV" ColumnName="IdSV" />
+          <ScalarProperty Name="IdFC" ColumnName="IdFC" />
+          <ScalarProperty Name="Nivel_frecard" ColumnName="Nivel_frecard" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="Fecha_regfc" ColumnName="Fecha_regfc" />
+          <ScalarProperty Name="Hora_regfc" ColumnName="Hora_regfc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="pacientes">
+      <EntityTypeMapping TypeName="uth_inte09Model.pacientes">
+        <MappingFragment StoreEntitySet="pacientes">
+          <ScalarProperty Name="Idpaciente" ColumnName="Idpaciente" />
+          <ScalarProperty Name="Nombrepas" ColumnName="Nombrepas" />
+          <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+          <ScalarProperty Name="Edad" ColumnName="Edad" />
+          <ScalarProperty Name="Estadocivil" ColumnName="Estadocivil" />
+          <ScalarProperty Name="Fecha_nac" ColumnName="Fecha_nac" />
+          <ScalarProperty Name="Domicilio" ColumnName="Domicilio" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+          <ScalarProperty Name="correo" ColumnName="correo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="peso">
+      <EntityTypeMapping TypeName="uth_inte09Model.peso">
+        <MappingFragment StoreEntitySet="peso">
+          <ScalarProperty Name="IdSV" ColumnName="IdSV" />
+          <ScalarProperty Name="Idp" ColumnName="Idp" />
+          <ScalarProperty Name="Peso1" ColumnName="Peso" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="Fecha_regp" ColumnName="Fecha_regp" />
+          <ScalarProperty Name="Hora_regp" ColumnName="Hora_regp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="pres_arte">
+      <EntityTypeMapping TypeName="uth_inte09Model.pres_arte">
+        <MappingFragment StoreEntitySet="pres_arte">
+          <ScalarProperty Name="IdSV" ColumnName="IdSV" />
+          <ScalarProperty Name="IdPA" ColumnName="IdPA" />
+          <ScalarProperty Name="Nivel_presi" ColumnName="Nivel_presi" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="Fecha_regpa" ColumnName="Fecha_regpa" />
+          <ScalarProperty Name="Hora_regpa" ColumnName="Hora_regpa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sat_oxi">
+      <EntityTypeMapping TypeName="uth_inte09Model.sat_oxi">
+        <MappingFragment StoreEntitySet="sat_oxi">
+          <ScalarProperty Name="IdSV" ColumnName="IdSV" />
+          <ScalarProperty Name="IdSO" ColumnName="IdSO" />
+          <ScalarProperty Name="Nivel_oxi" ColumnName="Nivel_oxi" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="Fecha_regso" ColumnName="Fecha_regso" />
+          <ScalarProperty Name="Hora_regso" ColumnName="Hora_regso" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sig_vit">
+      <EntityTypeMapping TypeName="uth_inte09Model.sig_vit">
+        <MappingFragment StoreEntitySet="sig_vit">
+          <ScalarProperty Name="Idpaciente" ColumnName="Idpaciente" />
+          <ScalarProperty Name="Expediente" ColumnName="Expediente" />
+          <ScalarProperty Name="IdSV" ColumnName="IdSV" />
+          <ScalarProperty Name="Fecha_reg" ColumnName="Fecha_reg" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="uth_inte09Model.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="talla">
+      <EntityTypeMapping TypeName="uth_inte09Model.talla">
+        <MappingFragment StoreEntitySet="talla">
+          <ScalarProperty Name="IdSV" ColumnName="IdSV" />
+          <ScalarProperty Name="Idt" ColumnName="Idt" />
+          <ScalarProperty Name="talla1" ColumnName="talla" />
+          <ScalarProperty Name="Fecha_regt" ColumnName="Fecha_regt" />
+          <ScalarProperty Name="Hora_regt" ColumnName="Hora_regt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tem_cor">
+      <EntityTypeMapping TypeName="uth_inte09Model.tem_cor">
+        <MappingFragment StoreEntitySet="tem_cor">
+          <ScalarProperty Name="IdSV" ColumnName="IdSV" />
+          <ScalarProperty Name="IdTC" ColumnName="IdTC" />
+          <ScalarProperty Name="Nivel_temp" ColumnName="Nivel_temp" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="Fecha_regtc" ColumnName="Fecha_regtc" />
+          <ScalarProperty Name="Hora_regtc" ColumnName="Hora_regtc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="AspNetUserRoles" TypeName="uth_inte09Model.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+      <EndProperty Name="AspNetRoles">
+        <ScalarProperty Name="Id" ColumnName="RoleId" />
+      </EndProperty>
+      <EndProperty Name="AspNetUsers">
+        <ScalarProperty Name="Id" ColumnName="UserId" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

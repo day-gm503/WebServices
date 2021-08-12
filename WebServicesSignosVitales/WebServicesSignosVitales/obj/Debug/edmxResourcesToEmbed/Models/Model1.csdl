@@ -1,0 +1,421 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="uth_inte09Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="C__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ContextKey" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+    <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetRoles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AspNetUsers" Relationship="Self.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaims">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUsers" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogins">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AspNetUsers" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+    <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+    <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+    <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+    <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+  </EntityType>
+  <EntityType Name="detalles">
+    <Key>
+      <PropertyRef Name="Idregistro" />
+    </Key>
+    <Property Name="IdFC" Type="Int32" />
+    <Property Name="Idregistro" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Distancia_recor" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Nopasos" Type="Int32" Nullable="false" />
+    <Property Name="Calorias_quem" Type="Int32" Nullable="false" />
+    <Property Name="Fecha_regde" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Hora_regde" Type="Time" Nullable="false" Precision="7" />
+    <NavigationProperty Name="fre_card" Relationship="Self.fk_fre_card" FromRole="detalles" ToRole="fre_card" />
+  </EntityType>
+  <EntityType Name="expediente">
+    <Key>
+      <PropertyRef Name="Expediente1" />
+    </Key>
+    <Property Name="Idpaciente" Type="Int32" />
+    <Property Name="Expediente1" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="sig_vit" Relationship="Self.fk_expediente" FromRole="expediente" ToRole="sig_vit" />
+    <NavigationProperty Name="pacientes" Relationship="Self.fk_pacientes" FromRole="expediente" ToRole="pacientes" />
+  </EntityType>
+  <EntityType Name="fre_card">
+    <Key>
+      <PropertyRef Name="IdFC" />
+    </Key>
+    <Property Name="IdSV" Type="Int32" />
+    <Property Name="IdFC" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nivel_frecard" Type="Int32" Nullable="false" />
+    <Property Name="Estado" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Fecha_regfc" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Hora_regfc" Type="Time" Nullable="false" Precision="7" />
+    <NavigationProperty Name="detalles" Relationship="Self.fk_fre_card" FromRole="fre_card" ToRole="detalles" />
+    <NavigationProperty Name="sig_vit" Relationship="Self.fk_sig_vital" FromRole="fre_card" ToRole="sig_vit" />
+  </EntityType>
+  <EntityType Name="pacientes">
+    <Key>
+      <PropertyRef Name="Idpaciente" />
+    </Key>
+    <Property Name="Idpaciente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombrepas" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Sexo" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Edad" Type="Int32" Nullable="false" />
+    <Property Name="Estadocivil" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Fecha_nac" Type="DateTime" Precision="0" />
+    <Property Name="Domicilio" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="telefono" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="correo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="expediente" Relationship="Self.fk_pacientes" FromRole="pacientes" ToRole="expediente" />
+    <NavigationProperty Name="sig_vit" Relationship="Self.fk_pacient" FromRole="pacientes" ToRole="sig_vit" />
+  </EntityType>
+  <EntityType Name="peso">
+    <Key>
+      <PropertyRef Name="Idp" />
+    </Key>
+    <Property Name="IdSV" Type="Int32" />
+    <Property Name="Idp" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Peso1" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
+    <Property Name="Estado" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Fecha_regp" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Hora_regp" Type="Time" Nullable="false" Precision="7" />
+    <NavigationProperty Name="sig_vit" Relationship="Self.fk_sig_vit" FromRole="peso" ToRole="sig_vit" />
+  </EntityType>
+  <EntityType Name="pres_arte">
+    <Key>
+      <PropertyRef Name="IdPA" />
+    </Key>
+    <Property Name="IdSV" Type="Int32" />
+    <Property Name="IdPA" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nivel_presi" Type="Int32" Nullable="false" />
+    <Property Name="Estado" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Fecha_regpa" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Hora_regpa" Type="Time" Nullable="false" Precision="7" />
+    <NavigationProperty Name="sig_vit" Relationship="Self.fk_sign_vit" FromRole="pres_arte" ToRole="sig_vit" />
+  </EntityType>
+  <EntityType Name="sat_oxi">
+    <Key>
+      <PropertyRef Name="IdSO" />
+    </Key>
+    <Property Name="IdSV" Type="Int32" />
+    <Property Name="IdSO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nivel_oxi" Type="Int32" Nullable="false" />
+    <Property Name="Estado" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Fecha_regso" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Hora_regso" Type="Time" Nullable="false" Precision="7" />
+    <NavigationProperty Name="sig_vit" Relationship="Self.fk_sig_vt" FromRole="sat_oxi" ToRole="sig_vit" />
+  </EntityType>
+  <EntityType Name="sig_vit">
+    <Key>
+      <PropertyRef Name="IdSV" />
+    </Key>
+    <Property Name="Idpaciente" Type="Int32" />
+    <Property Name="Expediente" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="IdSV" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Fecha_reg" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="expediente1" Relationship="Self.fk_expediente" FromRole="sig_vit" ToRole="expediente" />
+    <NavigationProperty Name="fre_card" Relationship="Self.fk_sig_vital" FromRole="sig_vit" ToRole="fre_card" />
+    <NavigationProperty Name="pacientes" Relationship="Self.fk_pacient" FromRole="sig_vit" ToRole="pacientes" />
+    <NavigationProperty Name="peso" Relationship="Self.fk_sig_vit" FromRole="sig_vit" ToRole="peso" />
+    <NavigationProperty Name="pres_arte" Relationship="Self.fk_sign_vit" FromRole="sig_vit" ToRole="pres_arte" />
+    <NavigationProperty Name="sat_oxi" Relationship="Self.fk_sig_vt" FromRole="sig_vit" ToRole="sat_oxi" />
+    <NavigationProperty Name="talla" Relationship="Self.fk_sig_vi" FromRole="sig_vit" ToRole="talla" />
+    <NavigationProperty Name="tem_cor" Relationship="Self.fk_signo_vit" FromRole="sig_vit" ToRole="tem_cor" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="talla">
+    <Key>
+      <PropertyRef Name="Idt" />
+    </Key>
+    <Property Name="IdSV" Type="Int32" />
+    <Property Name="Idt" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="talla1" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="Fecha_regt" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Hora_regt" Type="Time" Nullable="false" Precision="7" />
+    <NavigationProperty Name="sig_vit" Relationship="Self.fk_sig_vi" FromRole="talla" ToRole="sig_vit" />
+  </EntityType>
+  <EntityType Name="tem_cor">
+    <Key>
+      <PropertyRef Name="IdTC" />
+    </Key>
+    <Property Name="IdSV" Type="Int32" />
+    <Property Name="IdTC" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nivel_temp" Type="Int32" Nullable="false" />
+    <Property Name="Estado" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Fecha_regtc" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Hora_regtc" Type="Time" Nullable="false" Precision="7" />
+    <NavigationProperty Name="sig_vit" Relationship="Self.fk_signo_vit" FromRole="tem_cor" ToRole="sig_vit" />
+  </EntityType>
+  <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserClaims">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserLogins">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_fre_card">
+    <End Role="fre_card" Type="Self.fre_card" Multiplicity="0..1" />
+    <End Role="detalles" Type="Self.detalles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="fre_card">
+        <PropertyRef Name="IdFC" />
+      </Principal>
+      <Dependent Role="detalles">
+        <PropertyRef Name="IdFC" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_expediente">
+    <End Role="expediente" Type="Self.expediente" Multiplicity="0..1" />
+    <End Role="sig_vit" Type="Self.sig_vit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="expediente">
+        <PropertyRef Name="Expediente1" />
+      </Principal>
+      <Dependent Role="sig_vit">
+        <PropertyRef Name="Expediente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_pacientes">
+    <End Role="pacientes" Type="Self.pacientes" Multiplicity="0..1" />
+    <End Role="expediente" Type="Self.expediente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="pacientes">
+        <PropertyRef Name="Idpaciente" />
+      </Principal>
+      <Dependent Role="expediente">
+        <PropertyRef Name="Idpaciente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_sig_vital">
+    <End Role="sig_vit" Type="Self.sig_vit" Multiplicity="0..1" />
+    <End Role="fre_card" Type="Self.fre_card" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="sig_vit">
+        <PropertyRef Name="IdSV" />
+      </Principal>
+      <Dependent Role="fre_card">
+        <PropertyRef Name="IdSV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_pacient">
+    <End Role="pacientes" Type="Self.pacientes" Multiplicity="0..1" />
+    <End Role="sig_vit" Type="Self.sig_vit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="pacientes">
+        <PropertyRef Name="Idpaciente" />
+      </Principal>
+      <Dependent Role="sig_vit">
+        <PropertyRef Name="Idpaciente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_sig_vit">
+    <End Role="sig_vit" Type="Self.sig_vit" Multiplicity="0..1" />
+    <End Role="peso" Type="Self.peso" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="sig_vit">
+        <PropertyRef Name="IdSV" />
+      </Principal>
+      <Dependent Role="peso">
+        <PropertyRef Name="IdSV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_sign_vit">
+    <End Role="sig_vit" Type="Self.sig_vit" Multiplicity="0..1" />
+    <End Role="pres_arte" Type="Self.pres_arte" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="sig_vit">
+        <PropertyRef Name="IdSV" />
+      </Principal>
+      <Dependent Role="pres_arte">
+        <PropertyRef Name="IdSV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_sig_vt">
+    <End Role="sig_vit" Type="Self.sig_vit" Multiplicity="0..1" />
+    <End Role="sat_oxi" Type="Self.sat_oxi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="sig_vit">
+        <PropertyRef Name="IdSV" />
+      </Principal>
+      <Dependent Role="sat_oxi">
+        <PropertyRef Name="IdSV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_sig_vi">
+    <End Role="sig_vit" Type="Self.sig_vit" Multiplicity="0..1" />
+    <End Role="talla" Type="Self.talla" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="sig_vit">
+        <PropertyRef Name="IdSV" />
+      </Principal>
+      <Dependent Role="talla">
+        <PropertyRef Name="IdSV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_signo_vit">
+    <End Role="sig_vit" Type="Self.sig_vit" Multiplicity="0..1" />
+    <End Role="tem_cor" Type="Self.tem_cor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="sig_vit">
+        <PropertyRef Name="IdSV" />
+      </Principal>
+      <Dependent Role="tem_cor">
+        <PropertyRef Name="IdSV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AspNetUserRoles">
+    <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="*" />
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="uth_inte09Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
+    <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" />
+    <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" />
+    <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" />
+    <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" />
+    <EntitySet Name="detalles" EntityType="Self.detalles" />
+    <EntitySet Name="expediente" EntityType="Self.expediente" />
+    <EntitySet Name="fre_card" EntityType="Self.fre_card" />
+    <EntitySet Name="pacientes" EntityType="Self.pacientes" />
+    <EntitySet Name="peso" EntityType="Self.peso" />
+    <EntitySet Name="pres_arte" EntityType="Self.pres_arte" />
+    <EntitySet Name="sat_oxi" EntityType="Self.sat_oxi" />
+    <EntitySet Name="sig_vit" EntityType="Self.sig_vit" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="talla" EntityType="Self.talla" />
+    <EntitySet Name="tem_cor" EntityType="Self.tem_cor" />
+    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="fk_fre_card" Association="Self.fk_fre_card">
+      <End Role="fre_card" EntitySet="fre_card" />
+      <End Role="detalles" EntitySet="detalles" />
+    </AssociationSet>
+    <AssociationSet Name="fk_expediente" Association="Self.fk_expediente">
+      <End Role="expediente" EntitySet="expediente" />
+      <End Role="sig_vit" EntitySet="sig_vit" />
+    </AssociationSet>
+    <AssociationSet Name="fk_pacientes" Association="Self.fk_pacientes">
+      <End Role="pacientes" EntitySet="pacientes" />
+      <End Role="expediente" EntitySet="expediente" />
+    </AssociationSet>
+    <AssociationSet Name="fk_sig_vital" Association="Self.fk_sig_vital">
+      <End Role="sig_vit" EntitySet="sig_vit" />
+      <End Role="fre_card" EntitySet="fre_card" />
+    </AssociationSet>
+    <AssociationSet Name="fk_pacient" Association="Self.fk_pacient">
+      <End Role="pacientes" EntitySet="pacientes" />
+      <End Role="sig_vit" EntitySet="sig_vit" />
+    </AssociationSet>
+    <AssociationSet Name="fk_sig_vit" Association="Self.fk_sig_vit">
+      <End Role="sig_vit" EntitySet="sig_vit" />
+      <End Role="peso" EntitySet="peso" />
+    </AssociationSet>
+    <AssociationSet Name="fk_sign_vit" Association="Self.fk_sign_vit">
+      <End Role="sig_vit" EntitySet="sig_vit" />
+      <End Role="pres_arte" EntitySet="pres_arte" />
+    </AssociationSet>
+    <AssociationSet Name="fk_sig_vt" Association="Self.fk_sig_vt">
+      <End Role="sig_vit" EntitySet="sig_vit" />
+      <End Role="sat_oxi" EntitySet="sat_oxi" />
+    </AssociationSet>
+    <AssociationSet Name="fk_sig_vi" Association="Self.fk_sig_vi">
+      <End Role="sig_vit" EntitySet="sig_vit" />
+      <End Role="talla" EntitySet="talla" />
+    </AssociationSet>
+    <AssociationSet Name="fk_signo_vit" Association="Self.fk_signo_vit">
+      <End Role="sig_vit" EntitySet="sig_vit" />
+      <End Role="tem_cor" EntitySet="tem_cor" />
+    </AssociationSet>
+    <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
+      <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

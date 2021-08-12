@@ -93,3 +93,7 @@ C:\Users\Day Meri Galiz\source\repos\WebServices\WebServicesSignosVitales\WebSer
 C:\Users\Day Meri Galiz\source\repos\WebServices\WebServicesSignosVitales\WebServicesSignosVitales\obj\Debug\WebServicesSignosVitales.csproj.CopyComplete
 C:\Users\Day Meri Galiz\source\repos\WebServices\WebServicesSignosVitales\WebServicesSignosVitales\obj\Debug\WebServicesSignosVitales.dll
 C:\Users\Day Meri Galiz\source\repos\WebServices\WebServicesSignosVitales\WebServicesSignosVitales\obj\Debug\WebServicesSignosVitales.pdb
+C:\Users\Day Meri Galiz\source\repos\WebServices\WebServicesSignosVitales\WebServicesSignosVitales\bin\EntityFramework.dll
+C:\Users\Day Meri Galiz\source\repos\WebServices\WebServicesSignosVitales\WebServicesSignosVitales\bin\EntityFramework.SqlServer.dll
+C:\Users\Day Meri Galiz\source\repos\WebServices\WebServicesSignosVitales\WebServicesSignosVitales\bin\EntityFramework.xml
+C:\Users\Day Meri Galiz\source\repos\WebServices\WebServicesSignosVitales\WebServicesSignosVitales\bin\EntityFramework.SqlServer.xml
